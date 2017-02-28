@@ -1,0 +1,78 @@
+.todos {
+  width: 100%;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.6);
+  margin-bottom: 50px;
+}
+
+.todos input.textfield {
+  /*width: 480px;*/
+  height: 36px;
+  margin-right: 20px;
+  font-size: 1.4em;
+  vertical-align: top;
+}
+
+input[name="newTodo"] {
+  width: 500px;
+  transition: width 0.4s ease-in-out;
+}
+
+input[name="newTodo"]:focus {
+  width: 970px;
+}
+
+.todos input.checkbox {
+  width: 20px;
+  height: 20px;
+}
+
+.todos .checked {
+  text-decoration: line-through;
+}
+
+.todos button {
+  height: 36px;
+  font-size: 1.1em;
+  vertical-align: top;
+  border: solid 1px #999;
+  border-radius: 2px;
+}
+
+//TESTI//
+
+label {
+  height:20px;
+}
+
+// testiend //
+
+#addbutton {
+  height: 36px;
+  font-size: 1.1em;
+  vertical-align: top;
+  border: solid 1px #999;
+  border-radius: 2px;
+  float: right;
+}
+
+.todos .delete-icon {
+  /*display: inline-block;*/
+  cursor: pointer;
+  font-size: 30px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin-top: -0.438em;
+  //padding: 16px 12px 16px;
+}
+
+ul {
+  padding-top: 12px;
+}
+
+li {
+  list-style-type: none;
+  font-size: 20px;
+  position: relative;
+}
