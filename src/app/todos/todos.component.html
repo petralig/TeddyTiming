@@ -20,8 +20,9 @@
 
     <ul>
       <li *ngFor="let todo of todos; let i=index">
-        <label>
-          <input type="checkbox" class="checkbox"  [(ngModel)]="todo.completed"/>
+        <label class="testilabel">
+          <input type="checkbox" class="checkbox-custom" name="checkbox-1" [(ngModel)]="todo.completed"/>
+          <label class="checkbox-custom-label"></label>
         </label>
         <span [ngClass]="{checked: todo.completed}">{{ todo.newTodo }}</span>
         <span (click)="deleteTodo(i)" class="delete-icon">&times;</span>
