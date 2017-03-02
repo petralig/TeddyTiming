@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,39 +8,48 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodosComponent implements OnInit {
 
-  newTodo: string;
-  todos: any;
-  todoObj: any;
+  newItem: string;
+  items: any;
+  itemObj: any;
+
+  //private list: any = {};
 
   constructor() {
-    this.newTodo = '';
-    this.todos = [];
+    this.newItem = '';
+    this.items = [];
   }
 
-  addTodo(event) {
-    this.todoObj = {
-      newTodo: this.newTodo,
+  addItem(event) {
+    this.itemObj = {
+      newItem: this.newItem,
       completed: false
     };
-    this.todos.push(this.todoObj);
-    this.newTodo = '';
+    this.items.push(this.itemObj);
+    this.newItem = '';
     event.preventDefault();
   }
 
+  //saveList = (formValues: any) => {
+  //    localStorage.setItem('list', JSON.stringify(formValues));
+  //    console.log(formValues);
+  //  };
+
   deleteTodo(index) {
-    this.todos.splice(index, 1);
+    this.items.splice(index, 1);
   }
 
-  deleteSelectedTodos() {
+  deleteSelected() {
     // ES5?
-    for(let i=(this.todos.length -1); i > -1; i--) {
-      if(this.todos[i].completed) {
-        this.todos.splice(i, 1);
+    for(let i=(this.items.length -1); i > -1; i--) {
+      if(this.items[i].completed) {
+        this.items.splice(i, 1);
       }
     }
   }
 
   ngOnInit() {
+    // this.list = JSON.parse(localStorage.getItem('list'));
   }
 
 }
+

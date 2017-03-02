@@ -1,36 +1,42 @@
+
 <div class="row">
   <div class="todos">
     <div>
-      <form (submit)="addTodo($event)">
-        <!-- <input [(ngModel)]="newTodo" (keyup.enter)="newTodo=''" class="textfield" name="newTodo"> -->
+      <form (submit)="addItem($event)">
+        <!-- <form (submit)="addItem($event)" #listform="ngForm" (ngSubmit)="saveList(listform.value)"> -->
         <label>
-          <input [(ngModel)]="newTodo" (keyup.enter)="newTodo=''" class="textfield" name="newTodo">
+          <input [(ngModel)]="newItem" (keyup.enter)="newItem=''" class="textfield" name="newItem">
         </label>
-        <button id="addbutton" type="submit" [disabled]="newTodo===''">Add Todo</button>
+        <button id="addbutton" type="submit" [disabled]="newItem===''">Add Todo</button>
       </form>
     </div>
 
-    <div [hidden]="newTodo">
+    <div [hidden]="newItem">
       Type in a new todo...
     </div>
 
-    <div [hidden]="!newTodo">
-      Typing: {{ newTodo }}
+    <div [hidden]="!newItem">
+      Typing: {{ newItem }}
     </div>
 
     <ul>
-      <li *ngFor="let todo of todos; let i=index">
+      <li *ngFor="let item of items; let i=index">
         <label class="testilabel">
-          <input type="checkbox" class="checkbox-custom" name="checkbox-1" [(ngModel)]="todo.completed"/>
+          <input type="checkbox" class="checkbox-custom" name="checkbox-1" [(ngModel)]="item.completed"/>
           <label class="checkbox-custom-label"></label>
         </label>
-        <span [ngClass]="{checked: todo.completed}">{{ todo.newTodo }}</span>
+        <span [ngClass]="{'checked': item.completed}">{{ item.newItem }}</span>
         <span (click)="deleteTodo(i)" class="delete-icon">&times;</span>
       </li>
     </ul>
 
     <div>
-      <button (click)="deleteSelectedTodos()">Delete Selected</button>
+      <button (click)="deleteSelected()">delete selected</button>
+      <!-- <button (click)="saveList()">save</button> -->
     </div>
   </div>
 </div>
+
+<p>list:</p>
+<!-- <p> {{ list.newItem }} </p> -->
+

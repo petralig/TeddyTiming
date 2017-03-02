@@ -8,6 +8,7 @@ import {decimalDigest} from "@angular/compiler/src/i18n/digest";
 import {TodosComponent} from "./todos/todos.component";
 import {UserComponent} from "./user/user.component";
 import {ProgressbarComponent} from "./progressbar/progressbar.component";
+import { WeatherComponent } from './weather/weather.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import {ProgressbarComponent} from "./progressbar/progressbar.component";
     TodosComponent,
     UserComponent,
     ProgressbarComponent,
+    WeatherComponent,
   ],
   imports: [
     BrowserModule,

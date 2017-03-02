@@ -13,12 +13,12 @@
   vertical-align: top;
 }
 
-input[name="newTodo"] {
+input[name="newItem"] {
   width: 500px;
   transition: width 0.4s ease-in-out;
 }
 
-input[name="newTodo"]:focus {
+input[name="newItem"]:focus {
   width: 970px;
 }
 
