@@ -2,8 +2,8 @@
 <div class="row">
   <div class="todos">
     <div>
-      <form (submit)="addItem($event)">
-        <!-- <form (submit)="addItem($event)" #listform="ngForm" (ngSubmit)="saveList(listform.value)"> -->
+      <!--<form (submit)="addItem($event)">-->
+        <form #listform="ngForm" (ngSubmit)="addItem($event);">
         <label>
           <input [(ngModel)]="newItem" (keyup.enter)="newItem=''" class="textfield" name="newItem">
         </label>
@@ -32,11 +32,11 @@
 
     <div>
       <button (click)="deleteSelected()">delete selected</button>
-      <!-- <button (click)="saveList()">save</button> -->
+      <!-- <button (click)="saveList()">save</button> -->           <!-- createList() -->
     </div>
   </div>
 </div>
 
-<p>list:</p>
-<!-- <p> {{ list.newItem }} </p> -->
+<p>list: testing for local storage</p>
+<p> {{ newItem }} </p>
 

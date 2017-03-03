@@ -14,7 +14,8 @@ export class UserComponent implements OnInit {
 
   setUserinfo = (formValues: any) => {
     localStorage.setItem('user', JSON.stringify(formValues));
-    console.log(formValues);
+    this.user = formValues;
+    console.log(this.user);
   };
 
   ngOnInit() {
