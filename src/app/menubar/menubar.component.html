@@ -1,0 +1,22 @@
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <p class="navbar-brand navbar-center">TO DO</p>
+  <div class="navbar-nav">
+    <nav id="menu">
+      <h2>my lists</h2>
+      <button (click)="showList()">show lists</button>
+      <a href="javascript:void(0)" id="closebtn" (click)="closeNav()">&times;</a>
+
+      <ul *ngFor="let list of lists">
+        <li>
+          <!-- <a>{{ list.name }}</a> -->
+          <a>{{ list }}</a>
+        </li>
+      </ul>
+
+      <p>Check your weather!</p>
+    </nav>
+
+    <span class="typcn typcn-th-menu" id="openbtn" (click)="openNav()"></span>
+  </div>
+</nav>
+

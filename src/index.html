@@ -28,56 +28,12 @@
     <img id="logo" src="assets/black_logo.png"/>
   </div>
 
-  <div class="container-fluid">
-    <nav class="navbar navbar-toggleable-md navbar-light">
-      <span class="typcn typcn-th-menu" id="openbtn" onclick="openNav()"></span>
-      <a class="navbar-brand navbar-center" href="#">TO DO</a>
-      <!-- <div class="collapse navbar-collapse" id="navbarNavAltMarkup"> -->
-      <div class="navbar-nav">
-        <nav id="menu">
-          <h2>my lists</h2>
-          <a href="javascript:void(0)" id="closebtn" onclick="closeNav()">&times;</a>
-          <ul>
-            <li>
-              <a href="#">List 1</a>
-            </li>
-            <li>
-              <a href="#">List 2</a>
-            </li>
-            <li>
-              <a href="#">List 3</a>
-            </li>
-          </ul>
-
-          <p>Check your weather!</p>
-
-        </nav>
-      </div>
-      <!-- </div> -->
-    </nav>
-  </div>
-
-  <div class="container">
-    <h2>my list</h2>
-    <app-root>Loading...</app-root>
-  </div>
+  <app-root>Loading...</app-root>
 
   <footer>
     <p>TeddyTiming 2017</p>
   </footer>
 </div>
-
-<script>
-    function openNav() {
-        document.getElementById("menu").style.width = "400px";
-        document.getElementById("bg-container").style.marginLeft = "400px";
-    }
-    function closeNav() {
-        document.getElementById("menu").style.width = "0px";
-        document.getElementById("bg-container").style.marginLeft = "0px";
-    }
-</script>
-
 
 </body>
 </html>

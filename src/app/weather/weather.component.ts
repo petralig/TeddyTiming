@@ -11,15 +11,12 @@ export class WeatherComponent implements OnInit {
   private apinVastaus: any = {};
   private paikka: any = {};
   private lampotilat: any = {};
-  private kaupunki: string;
-  private maa: string;
-  private city: string;
 
 
   constructor(private http: Http) { }
 
-  private getApi() {
-      this.http.get('http://api.aerisapi.com//observations/'+this.kaupunki+','+this.maa+'?client_id=cIXZBPPK70aGNPlxYsWzB&client_secret=vuDLfmtvIavS3zmtU35PcTXtpfdmUTTr5KHO1G3S')
+  private getApi(lomake) {
+      this.http.get('http://api.aerisapi.com//observations/'+lomake.kaupunki+','+lomake.maa+'?client_id=cIXZBPPK70aGNPlxYsWzB&client_secret=vuDLfmtvIavS3zmtU35PcTXtpfdmUTTr5KHO1G3S')
         .subscribe(
           (res:Response) => {
             this.apinVastaus = res.json();
@@ -31,6 +28,7 @@ export class WeatherComponent implements OnInit {
         );
     }
 
+    /*
     setPlace = (city: string) => {
       this.city = city;
     };
@@ -38,9 +36,9 @@ export class WeatherComponent implements OnInit {
     getPlace = () => {
       return this.city;
     };
-
+    */
   ngOnInit() {
-    this.getApi();
+    //this.getApi();
   }
 
 }
