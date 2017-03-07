@@ -28,15 +28,6 @@ export class WeatherComponent implements OnInit {
         );
     }
 
-    /*
-    setPlace = (city: string) => {
-      this.city = city;
-    };
-
-    getPlace = () => {
-      return this.city;
-    };
-    */
   ngOnInit() {
     //this.getApi();
   }

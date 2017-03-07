@@ -1,9 +1,13 @@
-
 <div class="row">
   <div class="todos">
     <div>
-      <!--<form (submit)="addItem($event)">-->
-        <form #listform="ngForm" (ngSubmit)="addItem($event);">
+      <label>
+        List name:<br/>
+        <input type="text" [(ngModel)]="listname"><br/><br/>
+        {{ listname }}
+      </label><br/>
+
+      <form #listform="ngForm" (ngSubmit)="addItem($event);">
         <label>
           <input [(ngModel)]="newItem" (keyup.enter)="newItem=''" class="textfield" name="newItem">
         </label>
@@ -21,9 +25,8 @@
 
     <ul>
       <li *ngFor="let item of items; let i=index">
-        <label class="testilabel">
-          <input type="checkbox" class="checkbox-custom" name="checkbox-1" [(ngModel)]="item.completed"/>
-          <label class="checkbox-custom-label"></label>
+        <label>
+          <input type="checkbox" class="checkbox" [(ngModel)]="item.completed"/>
         </label>
         <span [ngClass]="{'checked': item.completed}">{{ item.newItem }}</span>
         <span (click)="deleteTodo(i)" class="delete-icon">&times;</span>
@@ -32,11 +35,7 @@
 
     <div>
       <button (click)="deleteSelected()">delete selected</button>
-      <!-- <button (click)="saveList()">save</button> -->           <!-- createList() -->
+      <button (click)="createList()">save</button>
     </div>
   </div>
 </div>
-
-<p>list: testing for local storage</p>
-<p> {{ newItem }} </p>
-

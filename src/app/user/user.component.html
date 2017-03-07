@@ -1,22 +1,15 @@
-
 <form #userform="ngForm" (ngSubmit)="setUserinfo(userform.value)">
   <label>
     Name:<br/>
     <input type="text" name="username" ngModel>
   </label>
   <br/>
-  <label>
-    List name:<br/>
-    <input type="text" name="listname" ngModel>
-  </label>
   <br/>
-  <button type="submit">OK</button><br/><br/>
-  <button type="reset">Clear</button><br/><br/>
+  <button type="submit">ok</button>
+  <button type="reset">clear form</button>
+  <button (click)="removeUser">delete user</button>
 </form>
 
+<br/>
 <h4>user info:</h4>
 <p>name: {{ user.username }}</p>
-<p>list name: {{ user.listname }}</p>
-
-
-

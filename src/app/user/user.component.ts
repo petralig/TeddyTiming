@@ -1,4 +1,3 @@
-
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -17,6 +16,10 @@ export class UserComponent implements OnInit {
     this.user = formValues;
     console.log(this.user);
   };
+
+  removeUser = () => {
+    localStorage.removeItem('user');
+  }
 
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem('user'));
