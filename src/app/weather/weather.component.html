@@ -1,9 +1,15 @@
-<p>
-  weather works!
-</p>
+
+<p>Type your city and abbreviation of your country</p>
 
 <ul>
-  <li *ngFor="let saatieto of apinVastaus">
-    <p>{{ saatieto.response.ob.tempC }}</p>
+  <li>
+    <p>{{ lampotilat.QC }}</p>
   </li>
 </ul>
+<form #locationForm="ngForm" (ngSubmit)="apinVastaus(locationForm.value)">
+
+  <input type="text" name="city" [(ngModel)]="city">
+  <button type="submit" (click)="jotain()">Search</button>
+
+</form>
+
