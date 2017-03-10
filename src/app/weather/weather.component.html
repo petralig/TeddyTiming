@@ -1,23 +1,25 @@
-<h2>Check your weather!</h2>
+<div id="weatherdiv">
+  <h2>Check your weather!</h2>
 
-<p>Type your city and abbreviation of your country</p>
-<form #locationForm="ngForm" (ngSubmit)="getApi(locationForm.value)">
-  <label>
-    City:
-    <input type="text" name="kaupunki" ngModel>
-  </label>
-  <label>
-    and country:
-    <input type="text" name="maa" ngModel>
-  </label>
-  <button type="submit">Search</button>
+  <p>Type your city and abbreviation of your country</p>
+  <form #locationForm="ngForm" (ngSubmit)="getApi(locationForm.value)">
+    <label class="weathertype" >
+      City:
+      <input id="city" class="weatherfield" type="text" name="kaupunki" pattern="[a-zA-Zà-žÀ-Ž]+" required ngModel>
+    </label>
+    <label class="weathertype">
+      Country:
+      <input class="weatherfield" type="text" name="maa" pattern="[a-zA-Z]{2,3}$" required ngModel>
+    </label><br/>
+    <button class="menulistbtn" type="submit" (click)="showLocation()">search</button>
+  </form>
 
-</form>
-<br/>
-<h3>Your weather in the area of "{{ paikka.name }}" is</h3>
-<p>Description: {{ lampotilat.weather }} </p>
-<p>Temperature: {{ lampotilat.tempC }} °C</p>
-<p>Feels like: {{ lampotilat.feelslikeC }} °C</p>
-<p>Humidity: {{ lampotilat.humidity }} %</p>
-<p>Wind (kph): {{ lampotilat.windKPH }} </p>
-<p>Visibility: {{ lampotilat.visibilityKM }} km</p>
+  <br/>
+  <h4 id="locationPar" style="display: none;">Your weather in the area of the nearest weather station ({{ paikka.name }}) is</h4>
+  <p>Description: {{ lampotilat.weather }} </p>
+  <p>Temperature: {{ lampotilat.tempC }} °C</p>
+  <p>Feels like: {{ lampotilat.feelslikeC }} °C</p>
+  <p>Humidity: {{ lampotilat.humidity }} %</p>
+  <p>Wind (kph): {{ lampotilat.windKPH }} </p>
+  <p>Visibility: {{ lampotilat.visibilityKM }} km</p>
+</div>

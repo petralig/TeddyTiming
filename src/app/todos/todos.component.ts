@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -11,8 +12,6 @@ export class TodosComponent implements OnInit {
   items: any;
   itemObj: any;
   listname: string = "";
-
-  //lists: any = [];
 
   constructor() {
     this.newItem = '';
@@ -59,6 +58,8 @@ export class TodosComponent implements OnInit {
   }
 
   ngOnInit() {
+    document.getElementById('navbar').style.display = "block";
+    document.getElementById('logo').style.marginTop = "0";
   }
 
 }

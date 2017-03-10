@@ -1,21 +1,93 @@
-<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded" id="navbar">
   <p class="navbar-brand navbar-center">TO DO</p>
   <div class="navbar-nav">
 
     <nav id="menu">
-      <h2>my lists</h2>
-      <button (click)="showList()">show lists</button>
+      <h2>My lists</h2>
       <a href="javascript:void(0)" id="closebtn" (click)="closeNav()">&times;</a>
 
-      <ul *ngFor="let list of lists; let i = index;">
+      <button class="menulistbtn" [routerLink] = "['/main']">create new list</button><br/>
+      <button class="menulistbtn" (click)="showList()">show lists</button>
+
+      <ul *ngFor="let list of lists; let i = index;" id="listnames">
         <li>
           <a [routerLink] = "['/lists', i]">{{ list.name }}</a>
+          <button class="menulistbtn" id="deletelistbtn" (click)="deleteList(i)">&times;</button>
         </li>
       </ul>
-
-      <p>Check your weather!</p>
+      <app-weather></app-weather>
     </nav>
 
-    <span class="typcn typcn-th-menu" id="openbtn" (click)="openNav()"></span>
+    <span class="typcn typcn-th-menu navbtn" id="openbtn" (click)="openNav()"></span>
+    <span class="typcn typcn-cog navbtn" id="settingsbtn" data-toggle="modal" data-target="#settingsmodal"></span>
   </div>
 </nav>
+
+
+<!-- WARNING MODAL (delete all lists) -->
+
+<div class="modal fade" id="deletelistsmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Warning!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Are you sure?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="listAlert()">ok</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SETTINGS MODAL -->
+
+<div class="modal fade" id="settingsmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Settings</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Delete all lists
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#deletelistsmodal">
+          ok
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WARNING MODAL (delete one list) -->
+
+<!-- <div class="modal fade" id="deletelistmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Warning!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Are you sure?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="deleteList(i)">ok</button>
+      </div>
+    </div>
+  </div>
+</div> -->

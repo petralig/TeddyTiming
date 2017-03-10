@@ -1,26 +1,27 @@
-<div class="row">
+<div class="container">
   <div class="todos">
     <div>
-      <label>
-        List name:<br/>
-        <input type="text" [(ngModel)]="listname"><br/><br/>
-        {{ listname }}
-      </label><br/>
+      <h4>Create new list</h4><br/>
+      <form>
+        <form>
+          <label>
+            List name:<br/>
+            <input id="listnamefield" name="listname" type="text" [(ngModel)]="listname"><br/>
+            {{ listname }}
+          </label><br/>
+        </form>
 
-      <form #listform="ngForm" (ngSubmit)="addItem($event);">
-        <label>
-          <input [(ngModel)]="newItem" (keyup.enter)="newItem=''" class="textfield" name="newItem">
-        </label>
-        <button id="addbutton" type="submit" [disabled]="newItem===''">Add Todo</button>
+        <form #listform="ngForm" (ngSubmit)="addItem($event);">
+          <label id="addtodo">
+            Add todo:<br/>
+            <input [(ngModel)]="newItem" (keyup.enter)="newItem=''" class="textfield" name="newItem">
+          </label>
+          <div [hidden]="!newItem">
+            Typing: {{ newItem }}
+          </div>
+          <button id="addbutton" type="submit" [disabled]="newItem===''">add</button>
+        </form>
       </form>
-    </div>
-
-    <div [hidden]="newItem">
-      Type in a new todo...
-    </div>
-
-    <div [hidden]="!newItem">
-      Typing: {{ newItem }}
     </div>
 
     <ul>
@@ -35,7 +36,7 @@
 
     <div>
       <button (click)="deleteSelected()">delete selected</button>
-      <button (click)="createList()">save</button>
+      <button (click)="createList()">save list</button>
     </div>
   </div>
 </div>

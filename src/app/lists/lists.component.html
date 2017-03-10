@@ -1,3 +1,14 @@
-<p>
-  lists works!
-</p>
+<div class="container">
+  <div class="todos">
+    <h4 id="listname">{{ lista.name }}</h4>
+    <ul>
+      <li *ngFor="let item of sisalto; let i=index">
+        <label>
+          <input type="checkbox" class="checkbox" (click)="changeState(i, !item.completed)" [(ngModel)]="item.completed"/>
+        </label>
+        <span [ngClass]="{'checked': item.completed}">{{ item.newItem }}</span>
+        <span (click)="deleteTodo(i)" class="delete-icon">&times;</span>
+      </li>
+    </ul>
+  </div>
+</div>

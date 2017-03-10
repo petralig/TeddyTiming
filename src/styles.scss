@@ -1,15 +1,76 @@
+@import '../node_modules/bootstrap/scss/bootstrap';
+
 /* You can add global styles to this file, and also import other style files */
 
+$green: #d1e3b4;
+$lightgreen: #f5f9eb;
+$hovergreen: #e5efd5;
+$white: #ffffff;
+$black: #000000;
+$grey: #999999;
+$gray: #afafaf;
+$lightgrey: #dddddd;
+
+// light theme //
+
 body {
+  height: 100%;
+
+  background: url('/assets/tausta.png') no-repeat center center fixed;
+  background-color: $lightgreen;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  // startpage //
+
+  #startlink {
+    text-align: center;
+    margin-top: 3em;
+    font-size: 25px;
+  }
+
+  #startlinktext {
+    text-decoration: none;
+    color: $black;
+  }
+
+  #toggle {
+    display: block;
+    height: 25px;
+    width: 100px;
+    background-color: $green;
+    text-align: center;
+    font: 14px/25px Helvetica, Arial, sans-serif;
+    margin: 20px 0;
+    position: fixed;
+  }
+  #toggle:hover {
+    background-color: $hovergreen;
+    cursor: pointer;
+  }
+
+  input#lightswitch {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
   #bg-container {
-    background-image: url('/assets/tausta.png');
-    /*background-size: 2000px;*/
-    background-repeat: no-repeat;
-    background-position: center center;
-    height: 100%;
-    transition: margin-left 0.5s;
-    padding: 16px;
-    /*margin: auto;*/
+    //background: url('/assets/tausta.png') no-repeat center center fixed;
+    //background-color: $lightgreen;
+    //-webkit-background-size: cover;
+    //-moz-background-size: cover;
+    //-o-background-size: cover;
+    //background-size: cover;
+    //background-repeat: no-repeat;
+    //background-position: center center fixed;
+    //height: 100%;
+    //transition: margin-left 0.5s;
+    //bottom: 0;
+    //padding-bottom:500px;
+
   }
 
   .header {
@@ -17,58 +78,87 @@ body {
 
     #logo {
       width: 300px;
-      padding: 15px 0px 25px 0px ;
+      padding: 15px 0px 25px 0px;
     }
   }
 
   .container-fluid {
 
     .navbar {
-      background-color: #999999;
+      background-color: $green;
 
-      #openbtn {
+      .navbtn {
+        z-index: 100;
         color: #fff;
         font-size: 30px;
         width: 50px;
         cursor: pointer;
-        z-index: 100;
+      }
+
+      #settingsbtn {
+        font-size: 40px;
+        margin-top: -9px;
+        float: left;
+        margin-left: 1em;
+        position: absolute;
       }
 
       #closebtn {
-        color: #fff;
+        color: $black;
         font-size: 50px;
         position: absolute;
         top: 0;
-        right: 1em;
+        right: 0.3em;
         text-decoration: none;
       }
 
+      #deletelistbtn {
+        cursor: pointer;
+        font-size: 20px;
+        height: 25px;
+        line-height: 0.8;
+        margin-top: 8px;
+      }
+
+      .menulistbtn {
+        background-color: $green;
+        margin-top: 15px;
+        margin-left: 40px;
+        height: 36px;
+        font-size: 1.1em;
+        vertical-align: top;
+        border: solid 1px #999;
+        border-radius: 2px;
+      }
+      .menulistbtn:hover {
+        background-color: $hovergreen;
+      }
+
       .navbar-brand {
-        color: #fff;
+        color: $white;
         text-align: center;
         padding-top: 10px;
         font-size: 30px;
       }
 
-      .navbar-center
-      {
+      .navbar-center {
         position: absolute;
         width: 100%;
         left: 0;
         top: 0;
         text-align: center;
         margin: auto;
-        height:100%;
+        height: 100%;
       }
 
       #menu {
         height: 100%;
         width: 0;
         position: fixed;
-        z-index: 100;
+        z-index: 150;
         top: 0;
         left: 0;
-        background-color: gainsboro;
+        background-color: $lightgreen;
         overflow-x: hidden;
         padding-top: 60px;
         transition: 0.5s;
@@ -80,23 +170,28 @@ body {
 
         ul {
           list-style-type: none;
-          padding-top: 2.5em;
+          padding-top: 1em;
 
           li {
-            padding-bottom: 0.5em;
+            //padding-bottom: 0.5em;
+            margin-bottom: -1.5em;
           }
 
           li a {
-            color: #000;
+            color: $black;
             text-decoration: none;
             font-size: 24px;
           }
         }
 
         p {
-          padding-top: 3em;
+          padding-top: 0.5em;
           padding-left: 2em;
-          font-size: 26px;
+          font-size: 20px;
+        }
+
+        h4 {
+          text-align: center;
         }
 
       }
@@ -104,17 +199,133 @@ body {
     }
   }
 
-  .container {
-    margin: auto;
-    /*display: flex;*/
-    /*flex-wrap: wrap;*/
+  //todos
+
+  .todos {
+    width: 100%;
+    padding: 20px;
+    // background: $lightgreen;
+    background: rgba(245, 249, 235, 0.6);
+    margin-top: 50px;
+    border-radius: 15px;
+
+    input.textfield {
+      //width: 480px;
+      height: 36px;
+      margin-right: 20px;
+      font-size: 1.4em;
+      vertical-align: top;
+    }
+
+    input[name="newItem"] {
+      width: 300px;
+      transition: width 0.4s ease-in-out;
+    }
+
+    input[name="newItem"]:focus {
+      width: 700px;
+
+      @media screen and (max-width: 1000px) {
+        width: 300px;
+      }
+    }
+
+    input.checkbox {
+      width: 20px;
+      height: 20px;
+
+    }
+
+    .checked {
+      text-decoration: line-through;
+    }
+
+    button {
+      background-color: $green;
+      height: 36px;
+      font-size: 1.1em;
+      vertical-align: top;
+      border: solid 1px $grey;
+      border-radius: 2px;
+    }
+
+    button:hover {
+      background-color: #e5efd5;
+    }
+
+    .delete-icon {
+      /*display: inline-block;*/
+      cursor: pointer;
+      font-size: 30px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      margin-top: -0.438em;
+      //padding: 16px 12px 16px;
+    }
+
+    #listnamefield {
+      width: 300px;
+    }
+
+    #addtodo {
+      width: 100%;
+    }
+
+    #addbutton {
+      //margin-top: 1.4em;
+      height: 36px;
+      font-size: 1.1em;
+      vertical-align: top;
+      border: solid 1px $grey;
+      border-radius: 2px;
+      margin-right: 250px;
+      margin-bottom: 30px;
+    }
+
+    #addbutton:hover {
+    }
   }
+
+  li {
+    list-style-type: none;
+    font-size: 20px;
+    position: relative;
+  }
+
+  // lists //
+
+  #listname {
+    margin-left: 1.8em;
+    margin-bottom: 1.3em;
+  }
+
+
+  //weather //
+
+  #weatherdiv {
+    margin-top: 10em;
+
+    .weathertype {
+      margin-left: 2.5em;
+    }
+
+    .weatherfield {
+      margin-left: 1em;
+    }
+
+    #city {
+      margin-left: 46px;
+    }
+  }
+
+  // footer //
 
   footer {
     text-align: center;
-    background-color: #999999;
+    background-color: $lightgreen;
     opacity: 0.3;
-    color: #fff;
+    color: #000000;
     margin-top: 50px;
     position: fixed;
     left: 0px;
@@ -125,8 +336,9 @@ body {
 
 }
 
+//lightswitch//
 
-@media screen and (max-width: 450px) {
-  #menu {padding-top: 15px;}
-  #menu ul li a {font-size: 18px;}
-}
+/*input#lightswitch:checked + body {
+  background-image: url('/assets/blurdarkbg.jpg');
+  background-color: $grey;
+}*/

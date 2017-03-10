@@ -10,7 +10,7 @@ describe('WeatherComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ WeatherComponent ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

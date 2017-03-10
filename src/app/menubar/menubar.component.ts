@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-
 import {Router} from "@angular/router";
 
 @Component({
@@ -25,6 +24,17 @@ export class MenubarComponent implements OnInit {
 
   showList() {
     this.lists = JSON.parse(localStorage.getItem('lists'));
+  }
+
+  deleteList(i) {
+    this.lists = JSON.parse(localStorage.getItem('lists'));
+    this.lists.splice(i, 1);
+    localStorage.setItem('lists', JSON.stringify(this.lists));
+  }
+
+  listAlert() {
+    localStorage.removeItem('lists');
+    // this.router.navigate(['main']);
   }
 
   ngOnInit() {
