@@ -1,19 +1,19 @@
 <div class="container">
   <div class="todos">
     <div>
-      <h4>Create new list</h4><br/>
+      <h4>Create a new list</h4><br/>
       <form>
         <form>
           <label>
             List name:<br/>
-            <input id="listnamefield" name="listname" type="text" [(ngModel)]="listname"><br/>
-            {{ listname }}
+            <input id="listnamefield" class="textfield" name="listname" type="text" [(ngModel)]="listname"><br/>
+            <!-- {{ listname }} -->
           </label><br/>
         </form>
 
         <form #listform="ngForm" (ngSubmit)="addItem($event);">
           <label id="addtodo">
-            Add todo:<br/>
+            Write down todos:<br/>
             <input [(ngModel)]="newItem" (keyup.enter)="newItem=''" class="textfield" name="newItem">
           </label>
           <div [hidden]="!newItem">
@@ -36,7 +36,7 @@
 
     <div>
       <button (click)="deleteSelected()">delete selected</button>
-      <button (click)="createList()">save list</button>
+      <button (click)="createList()" id="popoverbtn" data-toggle="popover" data-trigger="focus" data-animation="true" data-placement="bottom" data-content="List saved!">save list</button>
     </div>
   </div>
 </div>

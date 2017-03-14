@@ -1,15 +1,15 @@
 <div id="weatherdiv">
   <h2>Check your weather!</h2>
 
-  <p>Type your city and abbreviation of your country</p>
+  <p>Type your city and <strong>abbreviation</strong> of your country</p>
   <form #locationForm="ngForm" (ngSubmit)="getApi(locationForm.value)">
     <label class="weathertype" >
       City:
-      <input id="city" class="weatherfield" type="text" name="kaupunki" pattern="[a-zA-Zà-žÀ-Ž]+" required ngModel>
+      <input id="city" class="weatherfield" type="text" name="kaupunki" pattern="[a-zA-Zà-žÀ-Ž\s]+" required ngModel>
     </label>
     <label class="weathertype">
       Country:
-      <input class="weatherfield" type="text" name="maa" pattern="[a-zA-Z]{2,3}$" required ngModel>
+      <input class="weatherfield" type="text" name="maa" placeholder="for example FI or FIN" pattern="[a-zA-Z]{2,3}$" required ngModel>
     </label><br/>
     <button class="menulistbtn" type="submit" (click)="showLocation()">search</button>
   </form>

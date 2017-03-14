@@ -21,9 +21,7 @@
 <input type="checkbox" id="lightswitch" />
 <div id="bg-container">
   <div class="header">
-    <a [routerLink] = "['/main']">
-      <img id="logo" src="../assets/black_logo.png"/>
-    </a>
+    <img id="logo" src="../assets/black_logo.png"/>
   </div>
   <app-root>Loading...</app-root>
 
@@ -33,3 +31,9 @@
 </div>
 </body>
 </html>
+
+<script>
+  $(function () {
+    $('[data-toggle="popover"]').popover()
+  })
+</script>
